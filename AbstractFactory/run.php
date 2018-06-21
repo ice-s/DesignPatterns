@@ -5,6 +5,7 @@ use Factory\FactoryProducer\FactoryProducer;
 writeln('START TESTING Abstract FACTORY PATTERN');
 writeln('');
 testAbstractFactory();
+//testAbstractFactory2();
 writeln('');
 
 /**
@@ -36,6 +37,33 @@ function testAbstractFactory()
     writeln('Class name of instance: ' . get_class($object1));
 
     $object2 = $vehicleFactory->makeVehicle("Oto");
+    writeln('Class name of instance: ' . get_class($object2));
+
+}
+
+function testAbstractFactory2(){
+    writeln('');
+    writeln('********************************');
+    writeln('');
+
+    $typeAFactory = FactoryProducer::getFactory('TypeA');
+
+    $object1 = $typeAFactory->makeBook();
+    writeln('Class name of instance: ' . get_class($object1));
+
+    $object2 = $typeAFactory->makeVehicle();
+    writeln('Class name of instance: ' . get_class($object2));
+
+    writeln('');
+    writeln('********************************');
+    writeln('');
+
+    $typeBFactory = FactoryProducer::getFactory('TypeB');
+
+    $object1 = $typeBFactory->makeBook();
+    writeln('Class name of instance: ' . get_class($object1));
+
+    $object2 = $typeBFactory->makeVehicle();
     writeln('Class name of instance: ' . get_class($object2));
 }
 

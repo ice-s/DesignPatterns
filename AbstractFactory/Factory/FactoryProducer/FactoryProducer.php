@@ -9,6 +9,8 @@
 namespace Factory\FactoryProducer;
 
 use Factory\Factories\BookFactory;
+use Factory\Factories\TypeAFactory;
+use Factory\Factories\TypeBFactory;
 use Factory\Factories\VehicleFactory;
 
 class FactoryProducer
@@ -26,6 +28,13 @@ class FactoryProducer
             case "Book":
                 $factory = new BookFactory();
                 break;
+            case "TypeA":
+                $factory = new TypeAFactory();
+                break;
+            case "TypeB":
+                $factory = new TypeBFactory();
+                break;
+
         }
 
         return $factory;
