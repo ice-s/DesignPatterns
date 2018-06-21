@@ -1,41 +1,42 @@
 <?php
 
-use Factory\FactoryMethods\FactoryProducer;
-use Factory\FactoryMethods\Book11FactoryMethod;
-use Factory\FactoryInterfaces\FactoryMethodInterface;
+use Factory\FactoryProducer\FactoryProducer;
 
-writeln('START TESTING FACTORY METHOD PATTERN');
+writeln('START TESTING Abstract FACTORY PATTERN');
 writeln('');
-
-writeln('testing Book 10');
-$factoryMethodInstance = new FactoryProducer;
-testFactoryMethod($factoryMethodInstance);
-writeln('');
-
-writeln('testing Book 11');
-$factoryMethodInstance = new Book11FactoryMethod;
-testFactoryMethod($factoryMethodInstance);
-writeln('');
-
-writeln('END TESTING FACTORY METHOD PATTERN');
+testAbstractFactory();
 writeln('');
 
 /**
- * @param FactoryMethodInterface $factoryMethodInstance
+ * @param FactoryProducer $instance
  */
-function testFactoryMethod($factoryMethodInstance)
+function testAbstractFactory()
 {
-    $object1 = $factoryMethodInstance->makeBook("Chemistry");
+    $bookFactory = FactoryProducer::getFactory('Book');
+
+    $object1 = $bookFactory->makeBook("Chemistry");
     writeln('Class name of instance: ' . get_class($object1));
 
-    $object2 = $factoryMethodInstance->makeBook("Math");
+    $object2 = $bookFactory->makeBook("Math");
     writeln('Class name of instance: ' . get_class($object2));
 
-    $object3 = $factoryMethodInstance->makeBook("Physical");
+    $object3 = $bookFactory->makeBook("Physical");
     writeln('Class name of instance: ' . get_class($object3));
 
-    $object4 = $factoryMethodInstance->makeBook();
+    $object4 = $bookFactory->makeBook();
     writeln('Class name of instance: ' . get_class($object4));
+
+    writeln('');
+    writeln('********************************');
+    writeln('');
+
+    $vehicleFactory = FactoryProducer::getFactory('Vehicle');
+
+    $object1 = $vehicleFactory->makeVehicle("Motor");
+    writeln('Class name of instance: ' . get_class($object1));
+
+    $object2 = $vehicleFactory->makeVehicle("Oto");
+    writeln('Class name of instance: ' . get_class($object2));
 }
 
 function writeln($line_in)

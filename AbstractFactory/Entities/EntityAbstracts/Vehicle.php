@@ -8,7 +8,7 @@
 
 namespace Entities\EntityAbstracts;
 
-abstract class BookAbstracts
+abstract class Vehicle
 {
     private $pageNumber;
 

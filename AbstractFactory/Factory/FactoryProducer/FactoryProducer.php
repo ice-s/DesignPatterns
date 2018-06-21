@@ -6,16 +6,28 @@
  * Time: 1:25 PM
  */
 
-namespace Factory\FactoryMethods;
+namespace Factory\FactoryProducer;
 
-use Entities\Entities\Chemistry;
-use Entities\Entities\Math10;
-use Entities\Entities\Physical10;
-use Factory\FactoryInterfaces\FactoryMethodInterface;
+use Factory\Factories\BookFactory;
+use Factory\Factories\VehicleFactory;
 
 class FactoryProducer
 {
-    public static function getBook(){
+    /**
+     * @param null $choice
+     * @return BookFactory|VehicleFactory|null
+     */
+    public static function getFactory($choice = null){
+        $factory = null;
+        switch ($choice) {
+            case "Vehicle":
+                $factory = new VehicleFactory();
+                break;
+            case "Book":
+                $factory = new BookFactory();
+                break;
+        }
 
+        return $factory;
     }
 }

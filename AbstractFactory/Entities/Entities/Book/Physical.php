@@ -6,12 +6,12 @@
  * Time: 1:31 PM
  */
 
-namespace Entities\Entities;
+namespace Entities\Entities\Book;
 
-use Entities\EntityAbstracts\BookAbstracts;
-use Entities\EntityInterfaces\BookInterface;
+use Entities\EntityAbstracts\Book as BookAbstract;
+use Entities\EntityInterfaces\Book as BookInterface;
 
-class Physical10 extends BookAbstracts implements BookInterface
+class Physical extends BookAbstract implements BookInterface
 {
     public function showInfo()
     {

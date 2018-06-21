@@ -8,7 +8,7 @@
 
 namespace  Entities\EntityInterfaces;
 
-interface BookInterface
+interface Book
 {
     public function showInfo();
 }
